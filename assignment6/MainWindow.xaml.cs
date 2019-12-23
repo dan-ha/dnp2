@@ -29,6 +29,7 @@ namespace assignment6
         {
             aDialog.ShowDialog();
             mediaElement1.Source = new Uri(aDialog.FileName);
+            label.Content = aDialog.SafeFileName;
             mediaElement1.Play();
         }
 

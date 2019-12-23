@@ -6,17 +6,46 @@
         xmlns:local="clr-namespace:assignment6"
         mc:Ignorable="d"
         Title="assignment6" Height="300" Width="300">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="GrayBlueGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="DarkCyan" Offset="0"/>
+            <GradientStop Color="#CCCCFF" Offset="0.5"/>
+            <GradientStop Color="DarkCyan" Offset="1"/>
+        </LinearGradientBrush>
+        <Style x:Key="btnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource GrayBlueGradientBrush}"/>
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Margin" Value="6" />
+            <Setter Property="RenderTransformOrigin" Value="0.5 0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <RotateTransform/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                        <Storyboard TargetProperty="RenderTransform.Angle">
+                            <DoubleAnimation From="0" To="180" Duration="0:0:0.30" AutoReverse="True" FillBehavior="Stop"/>
+                        </Storyboard>
+                        </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="214*" />
             <RowDefinition Height="48*" />
         </Grid.RowDefinitions>
-        <MediaElement Grid.Row="0" MediaFailed="MediaElement1_MediaFailed" LoadedBehavior="Manual" Name="mediaElement1"/>
-        <ToolBar Grid.Row="1"  Name="toolBar1">
-            <Button Click="Button_Click">Open</Button>
-            <Button Click="Button_Click_1">Play</Button>
-            <Button Click="Button_Click_2">Pause</Button>
-            <Button Click="Button_Click_3">Stop</Button>
+        <Label Name="label"></Label>
+        <MediaElement Grid.Row="1" MediaFailed="MediaElement1_MediaFailed" LoadedBehavior="Manual" Name="mediaElement1"/>
+        <ToolBar Grid.Row="2"  Name="toolBar1">
+            <Button Click="Button_Click" Style="{StaticResource btnStyle}">Open</Button>
+            <Button Click="Button_Click_1" Style="{StaticResource btnStyle}">Play</Button>
+            <Button Click="Button_Click_2" Style="{StaticResource btnStyle}">Pause</Button>
+            <Button Click="Button_Click_3" Style="{StaticResource btnStyle}">Stop</Button>
         </ToolBar>
     </Grid>
 </Window>
