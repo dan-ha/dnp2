@@ -31,6 +31,7 @@ namespace assignment2
             Console.WriteLine("Cars with max speed more than 130:");
             cars.Filter(car => car.MaxSpeed > 130).Act(car => Console.WriteLine(car.MaxSpeed));
 
+            Console.ReadLine();
         }
     }
 }

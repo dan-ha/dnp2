@@ -67,6 +67,8 @@ namespace assignment4
 
             var total = (from customer in customers from order in customer.Orders select order.Quantity * order.Product.Price).Sum();
             Console.WriteLine("Total sum: " + total);
+
+            Console.ReadLine();
         }
     }
 }

@@ -36,6 +36,7 @@ namespace assignment1
                 Console.WriteLine(car.MaxSpeed);
             }
 
+            Console.ReadLine();
         }
     }
 }
