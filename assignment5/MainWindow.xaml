@@ -1,0 +1,43 @@
+﻿<Window x:Class="assignment5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:assignment5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="multimediaListBox" Grid.Row="0" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" Text="{Binding Path=Title}"/>
+                        <TextBlock FontStyle="Italic" Text="{Binding Path=Artist}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Grid.Row="1" Grid.Column="0" FontWeight="Bold" Content="Title"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="{Binding ElementName=multimediaListBox, Path=SelectedItem.Title}"/>
+        <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" Content="Artist"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="{Binding ElementName=multimediaListBox, Path=SelectedItem.Artist}"/>
+        <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" Content="Genre"/>
+        <Label Grid.Row="3" Grid.Column="1" Content="{Binding ElementName=multimediaListBox, Path=SelectedItem.Genre}"/>
+        <Label Grid.Row="4" Grid.Column="0" FontWeight="Bold" Content="Type"/>
+        <Label Grid.Row="4" Grid.Column="1" Content="{Binding ElementName=multimediaListBox, Path=SelectedItem.Type}"/>
+
+        <Button Grid.Row="5" Grid.Column="0" Height="21" VerticalAlignment="Bottom" Click="Button_Click">Add</Button>
+    </Grid>
+</Window>

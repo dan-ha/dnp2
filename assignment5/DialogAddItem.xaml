@@ -1,0 +1,35 @@
+﻿<Window x:Class="assignment5.DialogAddItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:assignment5"
+        mc:Ignorable="d"
+        Title="DialogAddItem" Height="200" Width="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" Content="Title"/>
+        <TextBox x:Name="tbTitle" Grid.Row="0" Grid.Column="1"/>
+        <Label Grid.Row="1" Grid.Column="0" FontWeight="Bold" Content="Artist"/>
+        <TextBox x:Name="tbArtist" Grid.Row="1" Grid.Column="1"/>
+        <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" Content="Genre"/>
+        <TextBox x:Name="tbGenre" Grid.Row="2" Grid.Column="1"/>
+        <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" Content="Type"/>
+        <ComboBox x:Name="cbType" Grid.Row="3" Grid.Column="1">
+            <ComboBoxItem Content="CD"/>
+            <ComboBoxItem Content="DVD" />
+        </ComboBox>
+
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Click="Button_Click">Save</Button>
+    </Grid>
+</Window>
