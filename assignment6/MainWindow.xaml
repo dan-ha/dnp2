@@ -37,7 +37,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="214*" />
-            <RowDefinition Height="48*" />
+            <RowDefinition Height="48" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Name="label"></Label>
         <MediaElement Grid.Row="1" MediaFailed="MediaElement1_MediaFailed" LoadedBehavior="Manual" Name="mediaElement1"/>
@@ -47,5 +48,6 @@
             <Button Click="Button_Click_2" Style="{StaticResource btnStyle}">Pause</Button>
             <Button Click="Button_Click_3" Style="{StaticResource btnStyle}">Stop</Button>
         </ToolBar>
+        <Label Grid.Row="3" Content="{Binding ElementName=mediaElement1, Path=Clock}"></Label>
     </Grid>
 </Window>
